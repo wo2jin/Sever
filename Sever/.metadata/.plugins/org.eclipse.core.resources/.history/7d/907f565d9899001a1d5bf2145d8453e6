@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	String url = "jdbc:oracle:thin:@localhost:1521:company";
+	Connection conn = DriverManager.getConnection(url,"scott","tiger");
+	String strSql = "select * from dept";
+	PreparedStatement stmt = conn.prepareStatement(strSql);
+	ResultSet rs =stmt.executeQuery();
+%>     
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1">
+	<%
+		while(rs.next()){
+	%>
+		<tr>
+			<td><%=rs.getInt("dept_id")%></td>
+			<td><%=rs.getString("dept_name") %></td>
+			<td><%=rs.getInt("loc_id")%></td>
+		</tr>
+		<%} %>
+	</table>
+
+
+</body>
+</html>

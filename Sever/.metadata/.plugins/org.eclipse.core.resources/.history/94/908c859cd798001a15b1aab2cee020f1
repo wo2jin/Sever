@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+</head>
+<body>
+	<form action = "loginProcess" method="post">
+		<table border ="0">
+			<tr>
+				<td>아이디 :</td>
+				<td><input type = "text" name= "userId" value = "userId"></td>
+			</tr>
+			<tr>
+				<td>암호 :</td>
+				<td><input type = "password" name= "userPwd" value = "userPwd"></td>
+			</tr>
+			<tr>
+				<td>암호확인 :</td>
+				<td><input type = "password" name= "userPwdcheck" value = "userPwdcheck"></td>
+			</tr>
+			<tr>
+				<td>남녀구분 :</td>
+				<td>
+				 남 <input type = "radio" name =  "gender" value= "male">
+				 여 <input type = "radio" name =  "gender" value= "female">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type= "submit" value = "로그인">
+					<input type= "reset" value = "초기화">
+				</td>
+			<tr>
+		</table>
+	</form>
+
+</body>
+</html>

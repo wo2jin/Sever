@@ -1,0 +1,55 @@
+package com.test;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import javafx.scene.control.Alert;
+
+@WebServlet("/ValidateUser")
+public class ValidateUser extends HttpServlet {
+	
+	private boolean userExists(String userId, String userPwd) {
+		
+		if(userId.equals("test")&&userPwd.equals("1234")) {
+			return true;
+		
+		}else {
+			return false;
+		}
+	}
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		res.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = res.getWriter();
+		
+		String userId = req.getParameter("userId");
+		String userPwd = req.getParameter("userPwd");
+		boolean Login;
+		
+		Login=userExists(userId,userPwd);
+		
+		if(Login==true) {
+			out.print("<script>");
+			out.print("alert('로그인 성공')");
+			out.print("</script>");
+			out.print(userId+","+userPwd);
+		}else{
+			out.print("<script>");
+			out.print("alert('로그인 실패')");
+			out.print("window.history.back();");
+			out.print("</script>");
+			
+		}
+		out.println("<html><body>");
+		out.print(Login);
+		out.print("</body></html>");
+		
+	}
+}

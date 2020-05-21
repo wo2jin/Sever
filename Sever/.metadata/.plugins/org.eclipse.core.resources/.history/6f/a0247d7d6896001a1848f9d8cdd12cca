@@ -1,0 +1,31 @@
+package com.test;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+
+
+
+public class LocalTestServlet extends HttpServlet{
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+		int number = 0;
+		res.setContentType("text/html'");
+		PrintWriter out = res.getWriter();
+		out.print("<html><body>");
+		while(number++<10) {
+			out.print(number+"<br>");
+			out.flush(); //나오는 족족 출력해라
+			try {
+				Thread.sleep(100);
+			}
+			catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		out.print("</body></html>");
+		
+	}
+
+}

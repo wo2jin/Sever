@@ -1,0 +1,25 @@
+package com.test;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+
+@WebServlet("/Login")
+public class Login extends HttpServlet {
+	public void doGet(HttpServletRequest req, HttpServletResponse res) 
+			throws IOException {
+		res.setContentType("text/html;charset=utf-8");
+		PrintWriter out = res.getWriter();
+		out.println("<html><body>");
+		out.println("<form action ='LoginProcess3' method='get'>");
+		out.println("<input type ='text' name='userId'><br>");
+		out.println("<input type='password' name='usePwd'><br>");
+		out.println("<input type='submit' value='로그인'");
+		out.println("</form");
+		out.println("<html><body>");
+		out.close();
+		
+	}
+}

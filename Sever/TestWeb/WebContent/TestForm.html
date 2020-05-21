@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+	function CheckForm(){
+		window.alert("hello....");
+		var userId = document.getElementById("userId").value;
+		//alert(userId);
+		if(userId==""){
+			alert("Required userId");
+			return false;
+		}
+		var userPwd = document.getElementById("userPwd").value;
+		var userPwdConfirm = document.getElementById("userPwdConfirm").value;
+		//alert(userPwd+","+userPwdConfirm);
+		if(userPwd == ""){
+			alert("Required password")
+			return false;
+		}
+		if(userPwdConfirm==""){
+			alert("Required userPwdConfirm")
+			return false;
+		}
+		if(userPwd !=userPwdConfirm){
+			alert("password unmatched")
+			return false;
+		}
+		if(userId=="test"&&userPwd=="1234"){
+			//login successful
+			alert("login successful");
+		}else{
+			//login error
+			alert("login error");
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="testFormProcess.jsp" method="get">
+	<input type="text" name = "userId" id="userId">
+	<br>
+	<input type="password" name = "userPwd" id="userPwd">
+	<br>
+	<input type="password" name = "userPwdConfirm" id="userPwdConfirm">
+	<br>
+	<input type="submit" value="Login" onclick="CheckForm();">
+	
+	</form>
+	<p onclick="CheckForm();">Click</p>
+	
+</body>
+</html>

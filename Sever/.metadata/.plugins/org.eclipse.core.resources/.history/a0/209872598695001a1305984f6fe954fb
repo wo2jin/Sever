@@ -1,0 +1,9 @@
+package com.test1;
+
+import javax.servlet.GenericServlet;
+
+public class FirstServlet1 extends GenericServlett{
+	public void service() {
+		
+	}
+}

@@ -1,0 +1,12 @@
+package com.test;
+
+import javax.servlet.http.*;
+
+public class LoginProcess extends HttpServlet {
+	
+	public void doGet(HttpServletRequest req, HttpServletReponse res) {
+		res.stContentType("text/html");
+		
+	}
+
+}

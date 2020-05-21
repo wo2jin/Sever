@@ -1,0 +1,36 @@
+package com.test;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import javafx.scene.control.Alert;
+
+@WebServlet("/ValidateUser")
+public class ValidateUser extends HttpServlet {
+	
+	private boolean userExists(String id, String password) {
+		
+		return false;
+	}
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		res.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = res.getWriter();
+		String userId = req.getParameter("userId");
+		String userPwd = req.getParameter("userPwd");
+		if(userId.equals("wo2jin")&&userPwd.equals("1234")) {
+			userExists(userId,userPwd);
+		}else {
+			out.print("alert('아이디비번확인')");
+		}
+		out.println("<html><body>");
+		
+	}
+}
